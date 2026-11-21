@@ -1,0 +1,56 @@
+.conversion-report {
+  display: grid;
+  gap: 16px;
+}
+
+.conversion-report > .dk-group-title,
+.conversion-activity > .dk-group-title {
+  margin: 0;
+}
+
+.conversion-dates {
+  margin-top: -12px;
+  font-size: 14px;
+}
+
+.conversion-figures {
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-l);
+  background: white;
+}
+
+.conversion-denominator {
+  max-width: 65ch;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.conversion-activity {
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-l);
+  background: white;
+}
+
+.conversion-activity dl {
+  margin: 8px 0 0;
+}
+
+.conversion-activity dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 9px 0;
+}
+
+.conversion-activity dl > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.conversion-activity dd {
+  margin: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

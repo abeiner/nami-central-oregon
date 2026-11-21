@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#142631">
+    <meta name="description" content="Follow one fictional sponsorship from a local business to the Central Oregon Resource Guide in this interactive NAMI Central Oregon demo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://red-mushroom-0bde5a81e.3.azurestaticapps.net/launch/">
+    <meta property="og:title" content="Pass the Guide · NAMI Central Oregon">
+    <meta property="og:description" content="Sponsor the Resource Guide, take the director’s seat, and see the promise in print.">
+    <meta property="og:image" content="https://red-mushroom-0bde5a81e.3.azurestaticapps.net/downloads/guide-cover.jpg">
+    <meta property="og:image:width" content="1672">
+    <meta property="og:image:height" content="941">
+    <meta property="og:image:alt" content="Two people passing the Central Oregon Resource Guide across a wooden table.">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Pass the Guide · NAMI Central Oregon</title>
+    <link rel="canonical" href="https://red-mushroom-0bde5a81e.3.azurestaticapps.net/launch/">
+    <link rel="stylesheet" href="/launch/launch.css">
+    <link rel="preload" href="/downloads/guide-cover.jpg" as="image">
+    <script src="/launch/launch.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip" href="#workbench">Skip to the demo</a>
+    <header class="masthead" id="top">
+      <div class="masthead-inner">
+        <a class="wordmark" href="/" aria-label="NAMI Central Oregon home">
+          <strong>NAMI</strong>
+          <span>Central<br>Oregon</span>
+        </a>
+        <div class="mast-actions">
+          <button type="button" class="share-link" data-share aria-label="Share demo"><span class="share-symbol" aria-hidden="true"></span><span>Share<span class="share-demo-word"> demo</span></span></button>
+          <a class="mast-exit" href="/">All partnerships <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-image" src="/downloads/guide-cover.jpg" alt="Two people passing the Central Oregon Resource Guide across a wooden table." width="1672" height="941" fetchpriority="high">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="hero-mode"><span></span> Interactive sponsorship demo</p>
+            <h1 id="hero-title">Pass the <em>guide.</em></h1>
+            <p class="hero-deck">Play a local sponsor, take the director’s seat, and see how a promise makes it into the hands of someone looking for help.</p>
+            <a class="hero-button" href="#workbench" data-begin>Start the demo <span aria-hidden="true">↓</span></a>
+          </div>
+          <span class="photo-label"><span aria-hidden="true"></span> Central Oregon Resource Guide</span>
+        </div>
+      </section>
+      <section class="workbench" id="workbench" aria-labelledby="stage-title">
+        <div class="journey-bar">
+          <nav class="journey-inner" aria-label="Demo steps">
+            <ol class="steps">
+              <li><button type="button" data-step="0" aria-current="step"><span class="step-index">1</span><span>Sponsor</span></button></li>
+              <li><button type="button" data-step="1" disabled><span class="step-index">2</span><span>Invoice</span></button></li>
+              <li><button type="button" data-step="2" disabled><span class="step-index">3</span><span>Director’s desk</span></button></li>
+              <li><button type="button" data-step="3" disabled><span class="step-index">4</span><span>Print proof</span></button></li>
+            </ol>
+          </nav>
+        </div>
+        <div class="bench-inner" id="bench-inner">
+          <aside class="stage-intro">
+            <p class="stage-role" id="stage-role">Sponsor view</p>
+            <h2 id="stage-title" tabindex="-1">Choose how to show up.</h2>
+            <p id="stage-description">Support the print and digital guide that helps Central Oregon families find mental health care.</p>
+            <p class="demo-note"><span aria-hidden="true"></span> Practice with a fictional business. No money moves and no email is sent.</p>
+          </aside>
+          <div class="stage-body" id="stage-body" aria-busy="true">
+            <p class="loading">Loading Resource Guide sponsorships…</p>
+            <noscript><p>Enable JavaScript to explore the demo, or <a href="/partner?select=resource-guide%3Asupporting">view Resource Guide sponsorship options</a>.</p></noscript>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-inner">
+        <a class="footer-brand" href="/">NAMI Central Oregon</a>
+        <a href="/partner?select=resource-guide%3Asupporting" data-partner>Explore Resource Guide sponsorship <span aria-hidden="true">↗</span></a>
+        <a href="/admin?demo=1">Explore the sample director’s desk <span aria-hidden="true">↗</span></a>
+        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+    <dialog id="share-dialog" aria-labelledby="share-title">
+      <form method="dialog" class="share-dialog-inner">
+        <button class="dialog-close" value="close" aria-label="Close share dialog">×</button>
+        <h2 id="share-title">Pass the link.</h2>
+        <p>Anyone with this link can start the demo with your fictional sponsor, level, and recognition choice.</p>
+        <label for="share-url">Demo link</label>
+        <input id="share-url" type="url" readonly>
+        <button class="primary-button" type="button" id="copy-button">Copy demo link</button>
+        <p id="copy-status" role="status"></p>
+      </form>
+    </dialog>
+  </body>
+</html>

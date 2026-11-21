@@ -1,0 +1,13 @@
+const { money } = require("./program");
+const escape = value => String(value ?? "").replace(/[<>&"']/g, ch => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;","'":"&#39;"})[ch]);
+function render(s, content, demo) {
+  const receipt = Boolean(s.invoice.paidAt);
+  const date = x => x ? new Date(x).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric",timeZone:"UTC"}) : "";
+  const instructions = demo ? "This is a sample invoice. No funds are due. Please keep payment details out of the demonstration."
+    : process.env.PAYMENT_INSTRUCTIONS || "Please contact the Regional Director through NAMI Central Oregon’s official channels to confirm payment arrangements. Reference your invoice number.";
+  return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>' + escape(s.invoice.number) + ' · NAMI Central Oregon</title><style>*{box-sizing:border-box}body{margin:0;background:#edf1ee;color:#173933;font:16px/1.5 system-ui}.sheet{max-width:780px;margin:4vw auto;padding:clamp(22px,5vw,65px);background:#fffdf7;border-top:10px solid #174f57}header,footer,.sum{border-top:1px solid #b1bbb4;padding:16px 0}header{border:0;color:#175b57;font-weight:700}h1{font:clamp(40px,8vw,62px)/1.1 Georgia;margin:25px 0 6px}.tag{margin:0;color:#42625a}table{width:100%;border-collapse:collapse;margin:38px 0 12px;text-align:left}td,th{border-bottom:1px solid #d6ded8;padding:12px 3px}td:last-child,th:last-child{text-align:right;white-space:nowrap}.sum{text-align:right;font-size:23px}footer{margin-top:35px;font-size:14px}@media print{body{background:white}.sheet{margin:0;max-width:none;border:0}}</style><main class="sheet"><header>NAMI Central Oregon · Business Partnerships</header><h1>' +
+    (demo ? "Sample " : "") + (receipt ? "payment record" : "invoice") + '</h1><p class="tag">' + escape(s.invoice.number) + '</p><p>Issued ' + date(s.invoice.issuedAt) + ' · Due ' + date(s.invoice.dueAt) + '</p><p><strong>Billed to ' + escape(s.company.name) + '</strong><br>' + escape(s.company.address) + '</p><table><thead><tr><th>Partnership</th><th>Amount</th></tr></thead><tbody>' +
+    s.selections.map(x=>'<tr><td>'+ escape(x.label) +'</td><td>'+money(x.amount)+'</td></tr>').join("") + '</tbody></table><div class="sum">Total &nbsp; <strong>' + money(s.total) + '</strong></div><p>' + (receipt ? 'Payment recorded ' + date(s.invoice.paidAt) + '.' : escape(instructions)) + '</p><footer>' + escape(content.org.name) + ' · ' + escape(content.org.programYear) + '<br>Recognition follows the preferences in your signed commitment.</footer></main></html>';
+}
+module.exports = {render};
+
